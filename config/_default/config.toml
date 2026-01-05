@@ -1,45 +1,68 @@
-baseURL = 'https://example.com'
-languageCode = ''
-title = 'Magnolia Default' # This can get overwritten by the single language files
-defaultContentLanguage = 'en'
-# defaultContentLanguageInSubDir = true
-enableRobotsTXT = true
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "My Magnolia Site"
+
+# Always Capital M. All fixes are in Capital M theme.
 theme = "Magnolia"
-googleAnalytics = ""
 
-# Block AI crawlers to limit traffic
-  # robots.txt from https://robotstxt.com/ai
-  # Note that enabling this might impact SEO performance, since many search engines now
-  # use LLMs that gather data with these crawlers from across the web
-[params.robots]
-  blockAIcrawlers = false
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableMultilingual = false
 
-# BLOG
-# Uncomment if you want to disable all posts and tags rendering and indexing
-#ignoreFiles= ['posts/*']
-#disableKinds = ['taxonomy', 'term']
+# All below this line has been provided as suggested by GPT-5 and customized by myself.
 
-# Developer area #
+# Enable draft content while developing
 
-[taxonomies]
-tag = "tags"
+buildDrafts = true
 
-[module]
-    [[module.mounts]]
-      source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-      target = "assets/js/bootstrap.bundle.min.js"
-      [[module.mounts]]
-      source = 'assets'
-      target = 'assets'
-  # Prints warning if hugo version is too old
-  [module.hugoVersion]
-    extended = false
-    min = '0.129.0'
+# Site params used by the Magnolia theme
+[params]
+    subtitle = "Welcome to Sarah DeSantis's website"
+# Any extra params the theme reads can go here.
 
+enabled = true
+callToAction = "Follow us:"
 
-  
-# To render some markdown otherwise unrendered
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+# Links is an array of tables below.
+
+# If social media is desired, include something to this effect:
+# [[params.socials.link]]
+# name = "X"
+# link = "https://x.com/yourhandle"
+# [[params.socials.link]]
+# name = "facebook"
+# link = "https://facebook.com/yourpage"
+
+# Menu definition (this builds .Site.Menus.main)
+[[menu.main]]
+    identifier = "home"
+    name = "Home"
+    URL = "/"
+    weight = 1
+
+[[menu.main]]
+    identifier = "about"
+    name = "About Me"
+    URL = "/pages/about/"
+    weight = 2
+
+[[menu.main]]
+    identifier = "work"
+    name = "My Work"
+    URL = "/pages/work/"
+    weight = 3
+
+[[menu.main]]
+    identifier = "posts"
+    name = "My Thoughts"
+    URL = "/pages/posts/"
+    weight = 4
+
+[[menu.main]]
+    identifier = "contact"
+    name = "Contact Me"
+    URL = "/pages/contact/"
+    weight = 5
+
+# Optional debug
+disableKings = [] # keep default kinds

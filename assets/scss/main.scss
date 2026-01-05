@@ -30,15 +30,15 @@
 /* REDEFINE REQUIRED VARIABLES */
 
 /* body color and background */
-$body-bg: #e8d6cb;
+$body-bg: #E2E8F2;
 $body-color: #0f1108;
 
 /* palette */
-$primary: #73003c;
-$secondary: #e0dedc;
+$primary: #8B9EBD;
+$secondary: #BAC7DC;
 $dark: $body-color;
 $light: $body-bg;
-$input-bg: tint-color($light, 15%);
+$input-bg: tint-color($light, 25%);
 
 /* others */
 $input-focus-border-color: $body-color;
@@ -87,7 +87,7 @@ p {
 /* NAVBAR */
 
 .navbar {
-  background-color: shade-color($body-bg, 3%);
+  background-color: #BAC7DC;
   font-family:
     system-ui,
     -apple-system,
@@ -181,7 +181,7 @@ button {
 
 /* FOOTER */
 footer {
-  background-color: shade-color($body-bg, 3%);
+  background-color: shade-color($body-bg, 20%);
   box-shadow: 0rem -0.25rem 0.25rem rgba(black, 0.075);
 
   h6,
@@ -268,3 +268,13 @@ footer {
 
 /* IMPORTING CUSTOM CSS */
 @import 'custom.scss';
+
+/*GPT-5 added: Ensures Markdown lists use the theme font*/
+
+.content ul,
+.content ol,
+.content li {
+  font-family: JosefinSans;
+  font-size: inherit;
+  line-height: inherit;
+}

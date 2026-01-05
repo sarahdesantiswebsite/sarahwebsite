@@ -1,0 +1,4 @@
+---
+title: Gardening
+translationKey: gardening
+---

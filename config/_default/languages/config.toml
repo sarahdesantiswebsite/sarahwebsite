@@ -1,0 +1,9 @@
+baseURL = "http://example.org"
+languageCode = "en-us"
+title = "My Magnolia Site"
+
+theme = "Magnolia"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableMultilingual = false
