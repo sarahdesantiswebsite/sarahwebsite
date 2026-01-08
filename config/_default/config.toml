@@ -1,4 +1,4 @@
-baseURL = "http://www.sarahdesantis.com"
+baseURL = "http://www.sarahdesantis.com/"
 languageCode = "en-us"
 title = "Sarah DeSantis"
 
@@ -8,8 +8,6 @@ theme = "Magnolia"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableMultilingual = false
-
-# All below this line has been provided as suggested by GPT-5 and customized by myself.
 
 # Enable draft content while developing
 
@@ -65,4 +63,4 @@ callToAction = "Follow us:"
     weight = 5
 
 # Optional debug
-disableKings = [] # keep default kinds
+disableKinds = [] # keep default kinds
