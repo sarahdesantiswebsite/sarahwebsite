@@ -3,7 +3,6 @@ languageCode = 'en-US'
 languageName = 'English'
 title = 'Sarah DeSantis' # This will go in the Header as well
 contentDir = "content/en"
-baseURL = 'http://www.sarahdesantis.com'
 
 
 # Change single params to "false" to remove from rendering

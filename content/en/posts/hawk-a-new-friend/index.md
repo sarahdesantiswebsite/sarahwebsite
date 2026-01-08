@@ -1,7 +1,7 @@
 ---
 title: 'Hawk! A New Friend'
 slug: 'hawk-a-new-friend'
-tags: ['gardening', 'birds']
+tags: ['gardening', 'birds', 'pest control']
 summary: Adventures in the garden find a surprising ally. 
 description: # This is what will be displayed as meta data (the theme will automatically grab it from summary if left empty)
 date: '2025-12-19'
