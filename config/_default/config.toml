@@ -1,6 +1,6 @@
-baseURL = "http://localhost:1313/"
+baseURL = "http://www.sarahdesantis.com"
 languageCode = "en-us"
-title = "My Magnolia Site"
+title = "Sarah DeSantis"
 
 # Always Capital M. All fixes are in Capital M theme.
 theme = "Magnolia"
