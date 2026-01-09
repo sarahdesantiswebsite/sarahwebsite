@@ -1,6 +1,6 @@
-baseURL = "http://example.org"
+baseURL = "http://www.sarahdesantis.com"
 languageCode = "en-us"
-title = "My Magnolia Site"
+title = "Sarah DeSantis's Thoughts"
 
 theme = "Magnolia"
 
