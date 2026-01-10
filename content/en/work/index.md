@@ -2,11 +2,12 @@
 title = "My Work"
 layout = "single"
 type = "work"
-image = "work/work.jpg"
 date = 2025-12-03
+
+images = ["work.jpg", "work2.jpg"]
 +++
 
-<!-- Place images in /static/about/ then add them to the above code.-->
+<!-- Place images in /content/en/work/ then add them to the above code.-->
 
 <!-- This page contains the body text for this page in Markdown.-->
 

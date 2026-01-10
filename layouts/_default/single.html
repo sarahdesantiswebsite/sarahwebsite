@@ -1,13 +1,24 @@
 {{ define "main" }}
 <div class="container">
-  {{ with .Resources.GetMatch "images/featured*" }}
-  <h1>{{ $.Title }}</h1>
-  <img
-    class="rounded img-fluid shadow post-img mb-3"
-    src="{{ .RelPermalink }}"
-    alt="{{ $.Title }} post featured image"
-  />
+{{ if .Params.images }}
+  {{ range .Params.images }}
+    {{ with $.Resources.GetMatch . }}
+      <img
+        class="rounded img-fluid shadow post-img mb-3"
+        src="{{ .RelPermalink }}"
+        alt="{{ $.Title }}"
+      />
+    {{ end }}
   {{ end }}
+{{ else if .Params.image }}
+  {{ with $.Resources.GetMatch .Params.image }}
+    <img
+      class="rounded img-fluid shadow post-img mb-3"
+      src="{{ .RelPermalink }}"
+      alt="{{ $.Title }}"
+    />
+  {{ end }}
+{{ end }}
 
   <div class="row g-2">
     <!-- Tags -->
