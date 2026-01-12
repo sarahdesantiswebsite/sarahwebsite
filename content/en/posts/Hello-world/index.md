@@ -8,6 +8,9 @@ date: '2025-12-19'
 expiryDate: '' # You want your post to vanish after a certain date? Write it down here! Must be in the same format of `date`
 draft: false
 layout: 'single'
+toc: false
+featured: "featured.png"
+featured_position: "top"
 # Refer to [Front matter | Hugo](https://gohugo.io/content-management/front-matter/)
 # One content management piece from Front Matter that's worth considering having is Weight, which will push certain posts to the top and sink others.
 ---

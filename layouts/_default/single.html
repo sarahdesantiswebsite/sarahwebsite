@@ -1,88 +1,90 @@
 {{ define "main" }}
 <div class="container">
-{{ if .Params.images }}
-  {{ range .Params.images }}
-    {{ with $.Resources.GetMatch . }}
-      <img
-        class="rounded img-fluid shadow post-img mb-3"
-        src="{{ .RelPermalink }}"
-        alt="{{ $.Title }}"
-      />
+
+  <!-- ===== FEATURED IMAGE: TOP ===== -->
+  {{ if and (.Params.featured) (eq .Params.featured_position "top") }}
+    {{ with .Resources.GetMatch (printf "images/%s" .Params.featured) }}
+      <figure class="mb-4">
+        <img src="{{ .RelPermalink }}" class="img-fluid rounded shadow" alt="{{ $.Title }}">
+        {{ with $.Params.featured_caption }}
+          <figcaption class="text-muted mt-2 small">{{ . }}</figcaption>
+        {{ end }}
+      </figure>
     {{ end }}
   {{ end }}
-{{ else if .Params.image }}
-  {{ with $.Resources.GetMatch .Params.image }}
-    <img
-      class="rounded img-fluid shadow post-img mb-3"
-      src="{{ .RelPermalink }}"
-      alt="{{ $.Title }}"
-    />
-  {{ end }}
-{{ end }}
 
-  <div class="row g-2">
-    <!-- Tags -->
-    <div class="col-sm-12 col-lg-6 order-2 order-lg-1">
-      {{ range .GetTerms "tags" }}
-      <a
-        href="{{ .RelPermalink }}"
-        class="btn btn-sm btn-light border-primary mb-2"
-        >#{{ .Title }}</a
-      >
-      {{ end }}
+  <div class="row">
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="{{ if or (.Params.toc) (and (.Params.featured) (eq .Params.featured_position "side")) }}col-lg-8{{ else }}col-12{{ end }}">
+      {{ .Content }}
     </div>
-    <!-- Image attrib -->
-    <div
-      class="col-sm-12 col-lg-6 d-flex justify-content-lg-end order-1 order-lg-2"
-    >
-      <small class="text-muted"
-        >{{ .Params.imageAttribution | markdownify }}</small
-      >
-    </div>
-  </div>
-  <!-- Content -->
-  <div class="row g-3 gx-lg-5">
-    <div class="col order-lg-first">{{ with .Content }}{{ . }}{{ end }}</div>
-    <!-- Table Of Contents -->
-    <div class="order-first order-lg-last col-12 col-lg-4">
-      {{ if in .TableOfContents "li" }}
-      <div class="border p-3 sticky-top toc">
-        <p>{{ .Site.Params.single.toc }}</p>
 
-        {{ .TableOfContents }}
-      </div>
-      {{ end }}
-    </div>
-  </div>
+    <!-- ===== RIGHT SIDEBAR ===== -->
+    {{ if or (.Params.toc) (and (.Params.featured) (eq .Params.featured_position "side")) }}
+      <div class="col-lg-4">
 
-  <!-- Related posts -->
-  {{ if .GetTerms "tags" }}
-
-  <hr />
-  <h4 class="text-center my-4">{{ .Site.Params.single.similarcontent }}</h4>
-
-  <div class="row g-3 mb-3">
-    {{ $pagesToRender := slice }}
-
-    {{ range .GetTerms "tags" }}
-      {{ range first 4 .Pages }}
-        {{ $pageToAppend := . }}
-
-        {{ if not (in $pagesToRender $pageToAppend) }}
-          {{ if ne $pageToAppend $.Page }}
-            {{ $pagesToRender = $pagesToRender | append $pageToAppend }}
+        <!-- FEATURED IMAGE: SIDE -->
+        {{ if and (.Params.featured) (eq .Params.featured_position "side") }}
+          {{ with .Resources.GetMatch (printf "images/%s" .Params.featured) }}
+            <figure class="mb-4">
+              <img src="{{ .RelPermalink }}" class="img-fluid rounded shadow" alt="{{ $.Title }}">
+              {{ with $.Params.featured_caption }}
+                <figcaption class="text-muted mt-2 small">{{ . }}</figcaption>
+              {{ end }}
+            </figure>
           {{ end }}
         {{ end }}
 
-      {{ end }}
+        <!-- TABLE OF CONTENTS -->
+        {{ if .Params.toc }}
+          {{ if in .TableOfContents "li" }}
+            <div class="border p-3 sticky-top toc">
+              <p>{{ .Site.Params.single.toc }}</p>
+              {{ .TableOfContents }}
+            </div>
+          {{ end }}
+        {{ end }}
+
+      </div>
     {{ end }}
 
-    {{ range $pagesToRender }}
-      {{ partial "post-card" . }}
-    {{ end }}
   </div>
 
-  {{ end }}
-</div>
+  <!-- ===== TAGS + IMAGE ATTRIBUTION ===== -->
+  <div class="row g-2 mt-4">
+    <div class="col-sm-12 col-lg-6">
+      {{ range .GetTerms "tags" }}
+        <a href="{{ .RelPermalink }}" class="btn btn-sm btn-light border-primary mb-2">
+          #{{ .Title }}
+        </a>
+      {{ end }}
+    </div>
+    <div class="col-sm-12 col-lg-6 d-flex justify-content-lg-end">
+      <small class="text-muted">
+        {{ .Params.imageAttribution | markdownify }}
+      </small>
+    </div>
+  </div>
 
+  <!-- ===== RELATED POSTS ===== -->
+  {{ if .GetTerms "tags" }}
+    <hr />
+    <h4 class="text-center my-4">{{ .Site.Params.single.similarcontent }}</h4>
+    <div class="row g-3 mb-3">
+      {{ $pagesToRender := slice }}
+      {{ range .GetTerms "tags" }}
+        {{ range first 4 .Pages }}
+          {{ if and (ne . $.Page) (not (in $pagesToRender .)) }}
+            {{ $pagesToRender = $pagesToRender | append . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ range $pagesToRender }}
+        {{ partial "post-card" . }}
+      {{ end }}
+    </div>
+  {{ end }}
+
+</div>
 {{ end }}

@@ -27,6 +27,6 @@ We selectively deployed the campaign during the start of travel season because t
 
 To show how litter stacks up, our team collected litter from roadways and filled plexiglas windows in bus shelters. Several stop-motion video advertisements were created using this real litter. 
 
-We used advertising targeting to get our message in front of the population that most frequently litters: Males in their late teens and early 20s.This included display, social media, and streaming video ads. 
+We used advertising targeting to get our message in front of the population that most frequently litters: Males in their late teens and early 20s. This included display, social media, and streaming video ads. 
 
 PA Fights Dirty received a National Gold ADDY from the American Advertising Foundation,  and an Emmy Award from the National Academy of Television Arts & Sciences (NATAS) Mid-Atlantic Chapter.
