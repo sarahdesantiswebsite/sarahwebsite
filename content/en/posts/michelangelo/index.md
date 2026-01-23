@@ -2,7 +2,7 @@
 title: 'I’m the Michelangelo of Doors'
 slug: 'michelangelo'
 tags: ['lead paint', 'indoor projects', 'painting', 'how-to', 'home repair', 'doors']
-summary: Sowing seeds in the colder months.
+summary: Getting the lead out.
 description: # This is what will be displayed as meta data (the theme will automatically grab it from summary if left empty)
 date: '2026-01-22'
 expiryDate: '' # You want your post to vanish after a certain date? Write it down here! Must be in the same format of `date`
