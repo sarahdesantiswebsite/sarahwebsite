@@ -15,7 +15,7 @@ featured_position: "side"
 # One content management piece from Front Matter that's worth considering having is Weight, which will push certain posts to the top and sink others.
 ---
 
-## To Catch A Perrdator
+## To Catch A Purrdator
 
 Despite dwarfing Charlotte Lucas in spinsterhood years, I have yet to be visited by the Cat Distribution System. It’s really for the best because my bajillion plants would surely poison any cat that steps foot into my house. Still… I’m a *little* offended.
 
